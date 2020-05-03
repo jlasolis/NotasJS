@@ -1,8 +1,7 @@
+<script>
 //este script resuelve un par de problemas en Unbounce, como son el paso de los UTMs y la creación de un ID único con el que identificar cada lead además de concatenarlos en los comentarios
 // suponemos que el formulario tiene los campos ocultos valor_cid utm_source utm_medium utm_campaignid y comentario
 // @jlasolis https://github.com/jlasolis/NotasJS/
-
-<script>
 //lo primero es declarar una función con la que extraer los parámetros GET 
 
     function getParameterByName(name, url) {
@@ -48,7 +47,7 @@ document.getElementById('comentarios').value=document.getElementById('comentario
   var d = new Date();
   d.setTime(d.getTime() + (1*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = "stella_cid=" + cid + ";" + expires + ";path=/";
+  document.cookie = "stella_cid=" + cid + ";" + expires + ";path=/" +";SameSite=Lax";
 if (typeof dataLayer !== 'undefined') {
     // the variable is defined
      dataLayer.push({'StellaCid': cid}); //aqui lo pasamos por GTM
